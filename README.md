@@ -1,3 +1,13 @@
+# React + Material UI
+
+Тестовый проект.
+
+## Ссылки:
+
+[material-ui/getting-started](https://mui.com/material-ui/getting-started)
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
