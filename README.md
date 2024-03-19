@@ -4,7 +4,8 @@
 
 ## Ссылки:
 
-[material-ui/getting-started](https://mui.com/material-ui/getting-started)
+- [craco/docs](https://craco.js.org/docs/)
+- [material-ui/getting-started](https://mui.com/material-ui/getting-started)
 
 ---
 
