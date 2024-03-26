@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import PositionedMenu from "../../components/positionedMenu/PositionedMenu";
 import RouterTabs from "components/routerTabs/RouterTabs";
-import { I_RoutedItem } from "components/routerTabs/I_RoutedItem";
+import { I_RoutedItem } from "types/I_RoutedItem";
 
 const routedData: I_RoutedItem[] = [
   {

@@ -3,5 +3,3 @@ export interface I_RoutedItem {
   pattern: string;
   to: string;
 }
-
-export type T_RoutedDataProps = { data: I_RoutedItem[] };
