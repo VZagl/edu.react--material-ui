@@ -1,31 +1,44 @@
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Helmet from "react-helmet";
 
 import "./App.scss";
 
-import Page404 from "pages/404";
-import MainPage from "pages/MainPage";
-import Page1 from "pages/Page1";
-import Page2 from "pages/Page2";
-import AppHeader from "features/appHeader/AppHeader";
-import CurrentRoute from "components/currentRoute/CurrentRoute";
+import Spinner from "components/spinner/Spinner";
+
+const Page404 = React.lazy(() => import("pages/404"));
+const CurrentRoute = React.lazy(
+  () => import("components/currentRoute/CurrentRoute")
+);
+const AppHeader = React.lazy(() => import("features/appHeader/AppHeader"));
+const MainPage = React.lazy(() => import("pages/MainPage"));
+const Page1 = React.lazy(() => import("pages/Page1"));
+const Page2 = React.lazy(() => import("pages/Page2"));
 
 export default function App() {
   return (
-    <div className="app">
-      <Router>
-        <CurrentRoute />
-        <AppHeader>header content</AppHeader>
-        <main>
-          <Routes>
-            <Route path="/" element={<MainPage />} />
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+      </Helmet>
+      <div className="app">
+        <Router>
+          <main>
+            <CurrentRoute />
+            <AppHeader>header content</AppHeader>
+            <React.Suspense fallback={<Spinner />}>
+              <Routes>
+                <Route path="/" element={<MainPage />} />
 
-            <Route path="/page1" element={<Page1 />} />
-            <Route path="/page2" element={<Page2 />} />
+                <Route path="/page1" element={<Page1 />} />
+                <Route path="/page2" element={<Page2 />} />
 
-            <Route path="*" element={<Page404 />} />
-          </Routes>
-        </main>
-      </Router>
-    </div>
+                <Route path="*" element={<Page404 />} />
+              </Routes>
+            </React.Suspense>
+          </main>
+        </Router>
+      </div>
+    </>
   );
 }
