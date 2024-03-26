@@ -3,6 +3,14 @@ import { Helmet } from "react-helmet";
 import { Box } from "@mui/material";
 
 export default function () {
+  useEffect(() => {
+    console.log("## Page1: CREATE");
+    return () => {
+      console.log("## Page1: DESTROY");
+    };
+  }, []);
+
+  console.log("## Page1: render");
   return (
     <>
       <Helmet>

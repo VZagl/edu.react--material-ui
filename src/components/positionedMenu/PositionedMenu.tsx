@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
-export function PositionedMenu() {
+import { T_RoutedDataProps } from "components/routerTabs/I_RoutedItem";
+
+export default function PositionedMenu(props: T_RoutedDataProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -14,6 +16,14 @@ export function PositionedMenu() {
     setAnchorEl(null);
   };
 
+  const listMenuItems = useMemo(() => {
+    return props.data.map((v) => (
+      <MenuItem key={v.pattern} onClick={handleClose}>
+        <NavLink to={v.to}>{v.label}</NavLink>
+      </MenuItem>
+    ));
+  }, [props.data]);
+
   return (
     <div>
       <Button
@@ -23,7 +33,7 @@ export function PositionedMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        Menu
       </Button>
       <Menu
         id="demo-positioned-menu"
@@ -40,26 +50,7 @@ export function PositionedMenu() {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>
-          <NavLink end to="/">
-            Main
-          </NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <NavLink end to="/page1">
-            Page 1
-          </NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <NavLink end to="/page2">
-            Page 2
-          </NavLink>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <NavLink end to="/err">
-            err
-          </NavLink>
-        </MenuItem>
+        {listMenuItems}
       </Menu>
     </div>
   );

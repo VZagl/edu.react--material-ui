@@ -1,20 +1,12 @@
 import React, { useEffect, useMemo } from "react";
-import { matchPath, useLocation } from "react-router-dom";
-import { Tab, Box } from "@mui/material";
-import { Link } from "react-router-dom";
-import { TabContext, TabList } from "@mui/lab";
+import { matchPath, useLocation, NavLink } from "react-router-dom";
+import { Box, Tab, Tabs } from "@mui/material";
 
-export interface I_RouterTabsItem {
-  label: string;
-  pattern: string;
-  to: string;
-}
+import { I_RoutedItem, T_RoutedDataProps } from "./I_RoutedItem";
 
-type T_RoutedDataProps = { data: I_RouterTabsItem[]; currentTab?: number };
-
-export function useRouteMatch(patterns: readonly I_RouterTabsItem[]) {
+export function useRouteMatch(patterns: readonly I_RoutedItem[]) {
   const { pathname } = useLocation();
-  console.log("## MyTabs#useRouteMatch: pathname=", pathname);
+  console.log("## RouterTabs#useRouteMatch: pathname=", pathname);
 
   for (let i = 0; i < patterns.length; i += 1) {
     const pattern = patterns[i];
@@ -29,14 +21,14 @@ export function useRouteMatch(patterns: readonly I_RouterTabsItem[]) {
 
 export default function RouterTabs(props: T_RoutedDataProps) {
   useEffect(() => {
-    console.log("## TabsRouter: CREATE");
+    console.log("## RouterTabs: CREATE");
     return () => {
-      console.log("## TabsRouter: DESTROY");
+      console.log("## RouterTabs: DESTROY");
     };
   }, []);
 
   const routeMatch = useRouteMatch(props.data);
-  const currentTab = routeMatch?.pattern?.path || -1;
+  const currentTab = routeMatch?.pattern?.path || false;
 
   const listTabs = useMemo(() => {
     return props.data.map((v) => (
@@ -45,22 +37,15 @@ export default function RouterTabs(props: T_RoutedDataProps) {
         value={v.pattern}
         to={v.to}
         label={v.label}
-        component={Link}
+        component={NavLink}
       />
     ));
   }, [props.data]);
 
-  console.log("## TabsRouter: render");
+  console.log("## RouterTabs: render");
   return (
     <Box sx={{ width: "100%", typography: "body1" }}>
-      <TabContext value={currentTab}>
-        <TabList>
-          {/* <Tab label="Inbox" value="/inbox/:id" to="/inbox/1" component={Link} />
-        <Tab label="Drafts" value="/drafts" to="/drafts" component={Link} />
-        <Tab label="Trash" value="/trash" to="/trash" component={Link} /> */}
-          {listTabs}
-        </TabList>
-      </TabContext>
+      <Tabs value={currentTab}>{listTabs}</Tabs>
     </Box>
   );
 }

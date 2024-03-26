@@ -1,6 +1,31 @@
 import React, { useEffect } from "react";
 
-import { PositionedMenu } from "./PositionedMenu";
+import PositionedMenu from "../../components/positionedMenu/PositionedMenu";
+import RouterTabs from "components/routerTabs/RouterTabs";
+import { I_RoutedItem } from "components/routerTabs/I_RoutedItem";
+
+const routedData: I_RoutedItem[] = [
+  {
+    label: "Main",
+    pattern: "/",
+    to: "/",
+  },
+  {
+    label: "page1",
+    pattern: "/page1",
+    to: "/page1",
+  },
+  {
+    label: "page2",
+    pattern: "/page2",
+    to: "/page2",
+  },
+  {
+    label: "err",
+    pattern: "/err",
+    to: "/err",
+  },
+];
 
 export default function AppHeader(props: { children?: React.ReactNode }) {
   const { children } = props;
@@ -16,7 +41,8 @@ export default function AppHeader(props: { children?: React.ReactNode }) {
   return (
     <div>
       <h1>app header</h1>
-      <PositionedMenu />
+      <PositionedMenu data={routedData} />
+      <RouterTabs data={routedData} />
       {children}
     </div>
   );
