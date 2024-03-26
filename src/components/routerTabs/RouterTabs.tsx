@@ -2,7 +2,8 @@ import React, { useEffect, useMemo } from "react";
 import { matchPath, useLocation, NavLink } from "react-router-dom";
 import { Box, Tab, Tabs } from "@mui/material";
 
-import { I_RoutedItem, T_RoutedDataProps } from "./I_RoutedItem";
+import { I_RoutedItem } from "types/I_RoutedItem";
+import { T_RoutedDataProps } from "types/T_RoutedDataProps";
 
 export function useRouteMatch(patterns: readonly I_RoutedItem[]) {
   const { pathname } = useLocation();

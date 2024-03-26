@@ -11,7 +11,7 @@ module.exports = {
       assets: resolvePath("src/assets"),
       img: resolvePath("src/assets/img"),
       components: resolvePath("src/components"),
-      // shared: resolvePath("src/shared"),
+      types: resolvePath("src/types"),
       // app: resolvePath("src/app"),
       // widgets: resolvePath("src/widgets"),
       // entities: resolvePath("src/entities"),
