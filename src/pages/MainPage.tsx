@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo } from "react";
+import { useLayoutEffect } from "react";
 import { Box } from "@mui/material";
 import { Helmet } from "react-helmet";
 
 export default function () {
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("## MainPage: CREATE");
     return () => {
       console.log("## MainPage: DESTROY");

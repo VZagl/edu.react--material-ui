@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Helmet from "react-helmet";
 
@@ -16,6 +16,14 @@ const Page1 = React.lazy(() => import("pages/Page1"));
 const Page2 = React.lazy(() => import("pages/Page2"));
 
 export default function App() {
+  useLayoutEffect(() => {
+    console.log("## App: CREATE");
+    return () => {
+      console.log("## App: DESTROY");
+    };
+  }, []);
+
+  console.log("## App: render");
   return (
     <>
       <Helmet>

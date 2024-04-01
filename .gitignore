@@ -23,5 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 
 /- inf
-/yarn.lock
-/package-lock.json

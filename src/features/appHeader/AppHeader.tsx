@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 
 import PositionedMenu from "../../components/positionedMenu/PositionedMenu";
 import RouterTabs from "components/routerTabs/RouterTabs";
@@ -30,7 +30,7 @@ const routedData: I_RoutedItem[] = [
 export default function AppHeader(props: { children?: React.ReactNode }) {
   const { children } = props;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("## AppHeader: CREATE");
     return () => {
       console.log("## AppHeader: DESTROY");

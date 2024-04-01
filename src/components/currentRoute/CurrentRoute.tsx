@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
 export default function CurrentRoute() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("## CurrentRoute: CREATE");
     return () => {
       console.log("## CurrentRoute: DESTROY");

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
 import { matchPath, useLocation, NavLink } from "react-router-dom";
 import { Box, Tab, Tabs } from "@mui/material";
 
@@ -21,7 +21,7 @@ export function useRouteMatch(patterns: readonly I_RoutedItem[]) {
 }
 
 export default function RouterTabs(props: T_RoutedDataProps) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("## RouterTabs: CREATE");
     return () => {
       console.log("## RouterTabs: DESTROY");

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 import ErrorMessage from "components/errorMessage/ErrorMessage";
 
 const Page404 = () => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     console.log("## Page404: CREATE");
     return () => {
       console.log("## Page404: DESTROY");
