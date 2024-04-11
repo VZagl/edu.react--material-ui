@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import logo from "assets/img/logo.svg";
+import logo from "~/assets/img/logo.svg";
 import "./HelloWorld.scss";
 
 const HelloWorld = () => {

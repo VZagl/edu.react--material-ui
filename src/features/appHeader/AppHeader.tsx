@@ -1,8 +1,8 @@
 import React, { useLayoutEffect } from "react";
 
-import PositionedMenu from "../../components/positionedMenu/PositionedMenu";
-import RouterTabs from "components/routerTabs/RouterTabs";
-import { I_RoutedItem } from "types/I_RoutedItem";
+import PositionedMenu from "~/components/positionedMenu/PositionedMenu";
+import RouterTabs from "~/components/routerTabs/RouterTabs";
+import { I_RoutedItem } from "~/types/I_RoutedItem";
 
 const routedData: I_RoutedItem[] = [
   {

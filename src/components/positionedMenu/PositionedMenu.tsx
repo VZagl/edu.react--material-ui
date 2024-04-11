@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
-import { T_RoutedDataProps } from "types/T_RoutedDataProps";
+import { T_RoutedDataProps } from "~/types/T_RoutedDataProps";
 
 export default function PositionedMenu(props: T_RoutedDataProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

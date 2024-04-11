@@ -4,16 +4,16 @@ import Helmet from "react-helmet";
 
 import "./App.scss";
 
-import Spinner from "components/spinner/Spinner";
+import Spinner from "~/components/spinner/Spinner";
 
-const Page404 = React.lazy(() => import("pages/404"));
+const Page404 = React.lazy(() => import("~/pages/404"));
 const CurrentRoute = React.lazy(
-  () => import("components/currentRoute/CurrentRoute")
+  () => import("~/components/currentRoute/CurrentRoute")
 );
-const AppHeader = React.lazy(() => import("features/appHeader/AppHeader"));
-const MainPage = React.lazy(() => import("pages/MainPage"));
-const Page1 = React.lazy(() => import("pages/Page1"));
-const Page2 = React.lazy(() => import("pages/Page2"));
+const AppHeader = React.lazy(() => import("~/features/appHeader/AppHeader"));
+const MainPage = React.lazy(() => import("~/pages/MainPage"));
+const Page1 = React.lazy(() => import("~/pages/Page1"));
+const Page2 = React.lazy(() => import("~/pages/Page2"));
 
 export default function App() {
   useLayoutEffect(() => {

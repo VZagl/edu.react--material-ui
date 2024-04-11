@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Box } from "@mui/material";
 
-import HelloWorld from "features/helloWorld/HelloWorld";
+import HelloWorld from "~/features/helloWorld/HelloWorld";
 
 export default function () {
   useLayoutEffect(() => {
